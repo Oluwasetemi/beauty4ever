@@ -86,8 +86,8 @@ web_modules/
 # TypeScript cache
 *.tsbuildinfo
 
-# Optional npm cache directory
 .npm
+# Optional npm cache directory
 
 # Optional eslint cache
 .eslintcache
@@ -176,3 +176,5 @@ dist
 .svelte-kit
 
 # End of https://www.toptal.com/developers/gitignore/api/node
+
+*.env
