@@ -29,21 +29,21 @@ This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-opti
 
 ## Order of Development
 
-- [] Landing Page
+- [ ] Landing Page
 - [x] Register Page
 - [x] Login Page
 - [x] Forgot Password Page
 - [x] Reset Password Page
-- [] Dashboard Page
-- [] Product Page
-- [] Review Page
-- [] Cart Page
-- [] Checkout Page
-- [] Payment Page
-- [] Order Confirmation Page
-- [] Order History Page
-- [] Profile Page
-- [] Settings Page
-- [] Company Blog Page
-- [] Admin Dashboard Page
-- [] Admin Product Page
+- [ ] Dashboard Page
+- [ ] Product Page
+- [ ] Review Page
+- [ ] Cart Page
+- [ ] Checkout Page
+- [ ] Payment Page
+- [ ] Order Confirmation Page
+- [ ] Order History Page
+- [ ] Profile Page
+- [ ] Settings Page
+- [ ] Company Blog Page
+- [ ] Admin Dashboard Page
+- [ ] Admin Product Page
