@@ -68,7 +68,6 @@ export default function LoginForm() {
   const [authChoice, setAuthChoice] = useState<"email" | "magic" | "passkey">(
     "email",
   );
-  console.log(authChoice);
 
   return (
     <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-[480px]">
@@ -105,7 +104,6 @@ export default function LoginForm() {
                     <EyeSlashIcon
                       className="cursor-pointer pointer-events-auto"
                       onClick={() => {
-                        console.log("clicked");
                         setShow(!show);
                       }}
                     />
@@ -113,7 +111,6 @@ export default function LoginForm() {
                     <EyeIcon
                       className="pointer-events-auto"
                       onClick={() => {
-                        console.log("clicked");
                         setShow(!show);
                       }}
                     />

@@ -11,7 +11,6 @@ import { sql } from "@vercel/postgres";
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function authenticate(formData: FormData) {
-  console.log("credentials", formData);
   await signIn("credentials", {
     email: formData.get("email") as string,
     password: formData.get("password") as string,
@@ -33,9 +32,7 @@ let RegisterSchemaRefined = RegisterSchema.refine(
   },
 );
 
-export async function register(prevState: RegisterState, formData: FormData): Promise<RegisterState> {
-  console.log("registering", prevState, formData);
-
+export async function register(prevState: RegisterState, formData: FormData) {
   const validatedData = RegisterSchemaRefined.safeParse({
     email: formData.get("email"),
     name: formData.get("name"),
@@ -55,8 +52,6 @@ export async function register(prevState: RegisterState, formData: FormData): Pr
     };
 
   }
-  console.log("validatedData", validatedData.error, validatedData.data);
-
   // hash password
   const hashedPassword = await bcrypt.hash(validatedData.data.password, 10);
   // console.log(hashedPassword)
@@ -66,8 +61,6 @@ export async function register(prevState: RegisterState, formData: FormData): Pr
     name: validatedData.data.name,
     password: hashedPassword,
   });
-
-  console.log(savedUser)
 
   if (savedUser.rowCount !== 1) {
     return {
@@ -88,8 +81,6 @@ export async function register(prevState: RegisterState, formData: FormData): Pr
 }
 
 export async function createUser(user: Omit<User, 'id'>) {
-  console.log("creating user", user);
-
   const savedUser = await sql`
     INSERT INTO users (email, name, password) VALUES (${user.email}, ${user.name}, ${user.password})
   `;
@@ -98,8 +89,6 @@ export async function createUser(user: Omit<User, 'id'>) {
 }
 
 export async function getUserFromDb(email: string) {
-  console.log("getting user from db", email);
-
   const user = await sql`
     SELECT * FROM users WHERE email = ${email}`;
 
@@ -113,7 +102,6 @@ export async function getUserFromDb(email: string) {
 }
 
 export async function sendEmail(subject: string, email: string, name: string) {
-  console.log("sending email");
   try {
     await resend.emails.send({
       from: "Beaty4ever Team <hello@oluwasetemi.dev>",
@@ -122,7 +110,6 @@ export async function sendEmail(subject: string, email: string, name: string) {
       react: GenerateEmailTemplate({ name, subject }),
     });
   } catch (error) {
-    console.log("Error sending email", error);
     throw new Error("Error sending email");
   }
 }

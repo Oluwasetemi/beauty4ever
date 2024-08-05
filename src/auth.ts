@@ -12,9 +12,6 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
         password: {},
       },
       authorize: async (credentials) => {
-        console.log("credentials inside authorize", credentials);
-
-
         let user = null;
 
         // logic to salt and hash password
@@ -27,6 +24,14 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
           // No user found, so this is their first attempt to login
           // meaning this is also the place you could do registration
           throw new Error("User not found.");
+        }
+
+        // logic to compare hashed password TODO:
+        const match = await bcrypt.compare(credentials.password as string, user.password);
+
+        if (!match) {
+          // Passwords don't match
+          throw new Error("Password doesn't match.");
         }
 
         // return user object with the their profile data

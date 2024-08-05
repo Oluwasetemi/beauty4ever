@@ -1,12 +1,8 @@
+import { Link } from "@/components/link";
+import { Input } from "@/components/input";
+import { Logo, } from "@/app/ui/login-form";
 import { Button } from "@/components/button";
 import { Field, FieldGroup, Label } from "@/components/fieldset";
-import { Input } from "@/components/input";
-import { Link } from "@/components/link";
-import {
-  Logo,
-  GitHubIcon,
-  GoogleIcon,
-} from "@/app/(authentication)/login/page";
 
 export default function Example() {
   return (

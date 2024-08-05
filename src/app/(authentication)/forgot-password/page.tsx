@@ -2,7 +2,7 @@ import { Button } from "@/components/button";
 import { Field, FieldGroup, Label } from "@/components/fieldset";
 import { Input } from "@/components/input";
 import { Link } from "@/components/link";
-import { Logo, GitHubIcon, GoogleIcon } from "@/app/ui/login-form";
+import { Logo } from "@/app/ui/login-form";
 
 export default function Page() {
   return (

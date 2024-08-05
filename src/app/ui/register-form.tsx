@@ -20,9 +20,7 @@ export function RegisterForm() {
   const [show, setShow] = useState(false);
   const initialState: RegisterState = {}
 
-  // TODO: fix type error
   const [state, dispatch, pending] = useFormState(register, initialState);
-  console.log(state);
   return (
     <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-[480px]">
       <div className="bg-white px-6 py-12 shadow sm:rounded-lg sm:px-12">
